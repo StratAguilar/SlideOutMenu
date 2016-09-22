@@ -15,8 +15,7 @@ protocol SlideOutMenuViewControllerDelegate: class{
 class SlideOutMenuViewController: UIViewController {
 
     weak var delgate: SlideOutMenuViewControllerDelegate?
-  
-  
+    static let viewControllerNibName: String = String(describing: SlideOutMenuViewController.self)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layer.cornerRadius = 10
@@ -28,6 +27,10 @@ class SlideOutMenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  static func initFromNib() -> SlideOutMenuViewController{
+    return SlideOutMenuViewController(nibName: viewControllerNibName, bundle: nil)
+  }
     
 
 }
